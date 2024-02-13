@@ -7,10 +7,10 @@ mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 MpDraw = mp.solutions.drawing_utils
 screen_width, screen_height = pyautogui.size()
-index_x, index_y = screen_width // 2, screen_height // 2  # Start cursor at the center of the screen
+index_x, index_y = screen_width // 2, screen_height // 2  
 
 # Smoothing factor
-SMOOTHING_FACTOR = 0.5  # Adjust smoothing factor as needed
+SMOOTHING_FACTOR = 0.5  
 
 while True:
     _, frame = cap.read()
