@@ -10,7 +10,7 @@ screen_width, screen_height = pyautogui.size()
 index_x, index_y = screen_width // 2, screen_height // 2  # Start cursor at the center of the screen
 
 # Smoothing factor
-SMOOTHING_FACTOR = 0
+SMOOTHING_FACTOR = 0.5  # Adjust smoothing factor as needed
 
 while True:
     _, frame = cap.read()
@@ -24,9 +24,9 @@ while True:
         for handLms in results.multi_hand_landmarks:
             MpDraw.draw_landmarks(frame, handLms, mpHands.HAND_CONNECTIONS)
             landmarks = handLms.landmark
-            for id, landmarks in enumerate(landmarks):
-                x = int(landmarks.x * frame_width)
-                y = int(landmarks.y * frame_height)
+            for id, landmark in enumerate(landmarks):
+                x = int(landmark.x * frame_width)
+                y = int(landmark.y * frame_height)
 
                 if id == 8:
                     cv2.circle(img=frame, center=(x, y), radius=20, color=(0, 255, 0))
